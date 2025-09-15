@@ -7,6 +7,13 @@
 /* 1. Global & Core Styles
    ------------------------------------------ */
 
+/* A critical rule to ensure all images scale down on smaller screens */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
 /* Import a custom font from Google Fonts for a unique look */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
 
@@ -153,10 +160,10 @@ a:hover {
 #skills .skills-list li {
     background-color: var(--light-color);
     padding: 0.5rem 1rem;
+    border: 1px solid var(--primary-color);
     border-radius: 20px;
     font-size: 0.9rem;
     white-space: nowrap;
-    border: 1px solid var(--primary-color);
     transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
@@ -199,7 +206,7 @@ a:hover {
 .project-card img {
     width: 100%;
     height: 200px;
-    object-fit: cover;
+    object-fit: contain;
     display: block;
 }
 
@@ -284,4 +291,28 @@ footer {
     color: var(--light-color);
     border-radius: 10px;
     margin-top: 2rem;
+}
+
+/* Responsive Styles for Smaller Screens */
+@media (max-width: 768px) {
+    body {
+        padding: 1rem;
+    }
+
+    section {
+        padding: 1.5rem;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    #about .about-content, #skills .skills-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #about .profile-pic {
+        margin-bottom: 1rem;
+    }
 }

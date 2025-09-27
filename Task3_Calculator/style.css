@@ -1,0 +1,148 @@
+/* General reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* Define a professional color palette */
+    --primary-color: #3498db; /* Blue for equals/highlight */
+    --secondary-color: #2ecc71; /* Green for C/AC */
+    --operator-color: #e67e22; /* Orange/Gold for operators */
+    --bg-dark: #2c3e50; /* Deep blue-gray background for the calculator */
+    --text-light: #ecf0f1; /* Off-white text */
+    --glass-dark: rgba(0, 0, 0, 0.3);
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Use solid, deep color for a more professional backdrop */
+    background: #1c1c1c; 
+    font-family: 'Montserrat', sans-serif; /* Professional font change */
+    color: var(--text-light);
+}
+
+.calculator {
+    /* Darker, opaque background for a high-end device look */
+    background: var(--bg-dark); 
+    border-radius: 25px; /* Slightly more rounded */
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8), /* Stronger central shadow */
+                0 0 0 8px rgba(255, 255, 255, 0.05); /* Subtle inner glow effect */
+    width: 380px; /* Slightly wider */
+    padding: 10px;
+}
+
+.display {
+    width: 100%;
+    height: 90px; /* Taller display */
+    border: none;
+    background: var(--glass-dark);
+    color: var(--text-light);
+    font-size: 3rem; /* Larger font size */
+    font-weight: 300; /* Lighter weight for a modern look */
+    text-align: right;
+    padding: 10px 20px;
+    outline: none;
+    border-radius: 15px; /* Rounded corners for display */
+    margin-bottom: 10px;
+    letter-spacing: 1px; /* Subtle spacing */
+}
+
+.keys {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px; /* Increased gap */
+    padding: 10px;
+}
+
+button {
+    border: none;
+    border-radius: 18px;
+    min-height: 65px; /* Ensure a good tap target height */
+    padding: 15px 0;
+    font-size: 1.6rem;
+    font-weight: 500;
+    color: var(--text-light);
+    background: #444; /* Dark gray for number buttons */
+    cursor: pointer;
+    transition: transform 0.1s ease, background 0.2s ease, box-shadow 0.2s ease;
+    
+    /* Subtle inner shadow for depth */
+    box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Number Button Hover */
+button:hover {
+    background: #555;
+}
+/* Number Button Active */
+button:active {
+    transform: scale(0.98);
+    background: #666;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+/* Operator Styles */
+.operator {
+    background: var(--operator-color);
+}
+.operator:hover {
+    background: #ff983d;
+}
+.operator:active {
+    background: #d4691e;
+}
+
+/* Clear Button (AC) */
+.clear-btn {
+    background: var(--secondary-color); /* Green color */
+}
+.clear-btn:hover {
+    background: #27ad60;
+}
+
+/* Equals Button */
+.equals {
+    /* Starts at the end of Row 3 and spans two rows */
+    grid-row: 3 / span 2; 
+    grid-column: 4 / 5;
+    background: var(--primary-color); /* Blue color */
+    box-shadow: 0 4px 10px rgba(52, 152, 219, 0.4); /* Glow on equals */
+}
+.equals:hover {
+    background: #2980b9;
+}
+.equals:active {
+    background: #1f6498;
+}
+
+/* Layout Specifics */
+.zero {
+    grid-column: span 2;
+    text-align: left;
+    padding-left: 30px; /* Shift text for zero button */
+}
+
+/* Responsive Design Refinement */
+@media (max-width: 450px) {
+    .calculator {
+        width: 95%;
+        max-width: 350px;
+        padding: 8px;
+    }
+    .display {
+        font-size: 2.5rem;
+        height: 80px;
+    }
+    .keys {
+        gap: 10px;
+    }
+    button {
+        font-size: 1.4rem;
+        min-height: 60px;
+    }
+}
